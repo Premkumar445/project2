@@ -1,7 +1,6 @@
-# orders/urls.py
 from django.urls import path
-from . import views   # ✅ இவ்வரியே முக்கியம்
+from . import views
 
 urlpatterns = [
-    path("register/", views.register_user, name="register"),
+    path('create_order/', views.create_order, name='create_order'),
 ]
