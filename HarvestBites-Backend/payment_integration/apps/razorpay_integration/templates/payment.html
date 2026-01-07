@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 60px auto; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px; background: #ffffff;">
+  <h2 style="font-size: 20px; font-weight: 600; margin-bottom: 16px; color: #111827;">
+    Demo Payment Page
+  </h2>
+
+  <p style="margin-bottom: 8px; font-size: 14px; color: #4b5563;">
+    Order ID:
+    <span style="font-family: monospace; font-weight: 600;">
+      {{ order_id }}
+    </span>
+  </p>
+
+  <p style="margin-bottom: 16px; font-size: 14px; color: #4b5563;">
+    Amount to pay:
+    <span style="font-weight: 600;">₹{{ amount|floatformat:2 }}</span>
+  </p>
+
+  <div style="margin-bottom: 16px; font-size: 13px; color: #6b7280; line-height: 1.5;">
+    This is a <strong>demo</strong> payment screen without real Razorpay integration.
+    No actual money will be charged. You can use this page just to test the
+    checkout flow from your React app to the backend template.
+  </div>
+
+  <button
+    type="button"
+    style="
+      margin-top: 12px;
+      padding: 10px 20px;
+      background: #f97316;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+    "
+    onclick="window.location.href='http://localhost:8080/account/orders';"
+  >
+    Mark as Paid &amp; Go to Orders
+  </button>
+
+  <p style="margin-top: 16px; font-size: 12px; color: #9ca3af;">
+    Later, when Razorpay Test keys are available, you can replace this demo
+    button with real Razorpay checkout script.
+  </p>
+</div>
+{% endblock %}

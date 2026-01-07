@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Warm, earthy palette inspired by millets and Indian heritage */
+    --background: 42 35% 97%;
+    --foreground: 30 25% 15%;
+
+    --card: 40 30% 95%;
+    --card-foreground: 30 25% 15%;
+
+    --popover: 42 35% 97%;
+    --popover-foreground: 30 25% 15%;
+
+    /* Golden amber - millet inspired */
+    --primary: 38 75% 50%;
+    --primary-foreground: 42 35% 97%;
+
+    /* Deep forest green - nature/health */
+    --secondary: 150 35% 22%;
+    --secondary-foreground: 42 35% 97%;
+
+    --muted: 40 20% 90%;
+    --muted-foreground: 30 15% 45%;
+
+    /* Terracotta accent */
+    --accent: 18 60% 55%;
+    --accent-foreground: 42 35% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 38 25% 85%;
+    --input: 38 25% 85%;
+    --ring: 38 75% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom brand colors */
+    --cream: 42 35% 97%;
+    --golden: 38 75% 50%;
+    --golden-light: 40 70% 65%;
+    --golden-dark: 35 80% 40%;
+    --forest: 150 35% 22%;
+    --forest-light: 150 30% 35%;
+    --terracotta: 18 60% 55%;
+    --terracotta-light: 18 50% 70%;
+    --earth: 30 25% 15%;
+    --sand: 40 30% 92%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 30 20% 8%;
+    --foreground: 40 30% 92%;
+
+    --card: 30 20% 12%;
+    --card-foreground: 40 30% 92%;
+
+    --popover: 30 20% 8%;
+    --popover-foreground: 40 30% 92%;
+
+    --primary: 38 75% 55%;
+    --primary-foreground: 30 20% 8%;
+
+    --secondary: 150 30% 30%;
+    --secondary-foreground: 40 30% 92%;
+
+    --muted: 30 15% 20%;
+    --muted-foreground: 40 20% 60%;
+
+    --accent: 18 55% 50%;
+    --accent-foreground: 40 30% 92%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 15% 25%;
+    --input: 30 15% 25%;
+    --ring: 38 75% 55%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+  }
+
+  .bg-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
