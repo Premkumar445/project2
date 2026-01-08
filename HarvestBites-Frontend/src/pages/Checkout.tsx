@@ -86,7 +86,7 @@ export default function Checkout() {
           form.firstName.trim().length > 1 &&
           form.lastName.trim().length > 0 &&
           form.email.includes("@") &&
-          form.phone.trim().length >= 10
+          form.phone.trim().length >= 14
         );
       case 2:
         return (
@@ -339,7 +339,7 @@ export default function Checkout() {
                     </div>
                     <div className="space-y-2">
                       <Label className="text-sm md:text-base">Phone (WhatsApp) *</Label>
-                      <Input name="phone" type="tel" inputMode="numeric" maxLength={10} value={form.phone} onChange={handleInputChange} required className="h-11 md:h-12 text-base" />
+                      <Input name="phone" type="tel" inputMode="numeric" maxLength={14} value={form.phone} onChange={handleInputChange} required className="h-11 md:h-12 text-base" />
                     </div>
                   </div>
                 </div>
