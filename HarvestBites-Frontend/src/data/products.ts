@@ -109,7 +109,7 @@ export const products: Product[] = [
   },
   {
     id: 2,
-    name: "Heart",
+    name: "Brain",
     subtitle: "Sorghum Millet Cookies",
     price: 229,
     rating: 4.8,
@@ -205,7 +205,7 @@ export const products: Product[] = [
   },
   {
     id: 5,
-    name: "Pocs",
+    name: "Pocd",
     subtitle: "Kangni Millet Cookies",
     price: 269,
     rating: 4.8,

@@ -25,7 +25,7 @@ const categories = [
   { name: "Brain", image: bornImg },
   { name: "Gut", image: heartImg },
   { name: "Heart", image: healthyImg },
-  { name: "Pcos", image: WomenImg },
+  { name: "Pcod", image: WomenImg },
 ];
 
 const features = [
@@ -169,7 +169,7 @@ function Home() {
 
 
       {/* Products Grid */}
-<section className="py-10 bg-white">
+<section className="py-15 bg-white">
   <div className="container mx-auto px-4">
     <h1 className="mb-6 text-3xl font-semibold text-center">
       Latest Products

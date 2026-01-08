@@ -21,7 +21,7 @@ def create_order(request):
             customer_phone=data.get('customer_phone', ''),
             customer_address=data.get('customer_address', ''),
             customer_pincode=data.get('customer_pincode'),
-            status='pending'
+            status='Conformed'
         )
         print("✅ WEBSITE ORDER SAVED:", order.order_number)
         return Response({'success': True, 'order_number': order.order_number})

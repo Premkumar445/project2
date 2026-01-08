@@ -7,6 +7,7 @@ from django.utils import timezone
 from datetime import timedelta
 from .models import Order
 
+
 @receiver(post_save, sender=Order)
 def send_order_confirmation(sender, instance, created, **kwargs):
     if created:
@@ -14,6 +15,7 @@ def send_order_confirmation(sender, instance, created, **kwargs):
         print(f"✅ Order created: {order_ref} → {instance.customer_email}")
         print("🚀 SIGNAL TRIGGERED!")
         
+        # Send Email
         subject = f"Order #{order_ref} Confirmed - HarvestBites"
         html_message = render_to_string('orders/order_confirmation.html', {
             'order': instance,
@@ -31,4 +33,6 @@ def send_order_confirmation(sender, instance, created, **kwargs):
             html_message=html_message,
             fail_silently=False,
         )
-        print(f"✅ SIGNAL EMAIL SENT: {instance.customer_email}")
+        print(f"✅ EMAIL SENT: {instance.customer_email}")
+
+        

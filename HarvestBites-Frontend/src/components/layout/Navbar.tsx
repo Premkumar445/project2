@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Menu,
   X,
-  Leaf,
   ShoppingBag,
   User,
   Heart,
@@ -14,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/harvestbiteslogo.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -40,8 +40,8 @@ export function Navbar() {
   return (
     <>
       {/* Top news / offer bar */}
-<div className="w-full bg-gradient-to-b from-[#7b0000] to-[#b30000] text-white text-sm md:text-base">
-  <div className="container mx-auto px-6 h-12 md:h-10 flex items-center justify-center overflow-hidden">
+<div className="w-full bg-gradient-to-b from-[#1B441F] to-[#1B441F] text-white text-sm md:text-base">
+  <div className="container mx-auto px-8 h-12 md:h-14 flex items-center justify-center overflow-hidden">
     <p className="whitespace-nowrap animate-[marquee_40s_linear_infinite] font-semibold">
       Free delivery for orders above ₹499 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       New millet cookie combo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -59,14 +59,13 @@ export function Navbar() {
       <nav className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 text-emerald-900">
         <div className="container mx-auto px-4">
           <div className="flex h-20 items-center justify-between">
-            {/* Logo */}
+            {/* Logo (PNG) */}
             <Link to="/" className="flex items-center gap-2 group">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600 text-white transition-transform group-hover:scale-110">
-                <Leaf className="h-5 w-5" />
-              </div>
-              <span className="font-display text-2xl md:text-3xl font-semibold text-emerald-900">
-                Harvest Bites
-              </span>
+              <img
+                src={logo}
+                alt="Harvest Bites Logo"
+                className="h-16 w-auto object-contain transition-transform group-hover:scale-110"
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -270,8 +269,9 @@ export function Navbar() {
                     {link.name}
                   </Link>
                 ))}
-                <Button variant="secondary" className="mt-2 text-base" asChild>
-                  <Link to="/shop" onClick={() => setIsOpen(false)}>
+                <Button className="mt-2 text-base bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-2 rounded-lg relative" asChild>
+                  <Link to="/shop" onClick={() => setIsOpen(false)} className="relative">
+                    <span className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
                     Shop Now
                   </Link>
                 </Button>
