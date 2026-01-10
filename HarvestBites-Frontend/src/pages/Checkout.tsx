@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useCart } from "@/contexts/CartContext";
+import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import {
   ArrowLeft,
@@ -23,6 +24,18 @@ export default function Checkout() {
   const { toast } = useToast();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const { isLoggedIn } = useAuth();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      toast({
+        title: "Login required",
+        variant: "destructive",
+      });
+      navigate("/login", { replace: true, state: { from: location.pathname + location.search } });
+    }
+  }, [isLoggedIn, navigate, toast]);
 
   // Stepper
   const [activeStep, setActiveStep] = useState(1);
@@ -86,7 +99,7 @@ export default function Checkout() {
           form.firstName.trim().length > 1 &&
           form.lastName.trim().length > 0 &&
           form.email.includes("@") &&
-          form.phone.trim().length >= 10
+          form.phone.trim().length >= 14
         );
       case 2:
         return (
@@ -339,7 +352,7 @@ export default function Checkout() {
                     </div>
                     <div className="space-y-2">
                       <Label className="text-sm md:text-base">Phone (WhatsApp) *</Label>
-                      <Input name="phone" type="tel" inputMode="numeric" maxLength={10} value={form.phone} onChange={handleInputChange} required className="h-11 md:h-12 text-base" />
+                      <Input name="phone" type="tel" inputMode="numeric" maxLength={14} value={form.phone} onChange={handleInputChange} required className="h-11 md:h-12 text-base" />
                     </div>
                   </div>
                 </div>
@@ -641,7 +654,7 @@ export default function Checkout() {
                       : activeStep === 2
                       ? "Continue to Payment"
                       : activeStep === 3
-                      ? `Review Order → ₹${total.toLocaleString()}`
+                      ? `Review Order `
                       : `Continue`}
                   </Button>
                   {activeStep > 1 && (

@@ -140,9 +140,7 @@ export default function OrderSuccess() {
               Order Placed Successfully!
             </h1>
             <p className="text-lg text-gray-600 mb-2">Order #{orderData.orderNumber}</p>
-            <p className="text-sm text-gray-500">
-              Confirmation sent to {displayAddress?.email}
-            </p>
+           
           </div>
 
           {/* Order Details Card */}
@@ -316,15 +314,7 @@ export default function OrderSuccess() {
               <Package className="w-5 h-5 mr-2" />
               Track Order
             </Button>
-            <Button
-              onClick={() => window.print()}
-              variant="outline"
-              className="h-14 border-2 border-gray-300 hover:bg-gray-50 font-semibold rounded-xl"
-              disabled={isSaving}
-            >
-              <Download className="w-5 h-5 mr-2" />
-              Print Receipt
-            </Button>
+            
             <Button
               onClick={() => navigate("/")}
               variant="outline"
@@ -341,14 +331,14 @@ export default function OrderSuccess() {
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 text-center mb-6">
               <div className="inline-flex items-center gap-2 text-blue-700">
                 <div className="w-5 h-5 border-2 border-blue-200 border-t-blue-500 rounded-full animate-spin"></div>
-                Saving order to database...
+                Order Placed Successfully
               </div>
             </div>
           )}
           {saveStatus === 'success' && (
             <div className="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-4 text-center mb-6">
               <CheckCircle className="w-6 h-6 text-emerald-600 mx-auto mb-2" />
-              <p className="text-emerald-700 font-semibold">Order saved to database successfully!</p>
+              <p className="text-emerald-700 font-semibold">Order Placed successfully!</p>
             </div>
           )}
 

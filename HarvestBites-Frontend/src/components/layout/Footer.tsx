@@ -24,7 +24,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="font-display text-lg font-semibold">Quick Links</h4>
+            <h4 className="font-display text-lg font-semibold">QUICK LINKS</h4>
             <ul className="space-y-2">
               {[
                 { name: "Home", path: "/" },
@@ -48,7 +48,7 @@ export function Footer() {
           {/* Policies – new column */}
           <div className="space-y-4">
             <h4 className="font-display text-lg font-semibold uppercase tracking-wide">
-              Policies
+              Consumer Policy
             </h4>
             <ul className="space-y-2">
               <li>
@@ -132,7 +132,7 @@ export function Footer() {
             {/* Copyright */}
             <div className="text-center md:text-right space-y-1">
               <p className="text-sm text-secondary-foreground/60">
-                © 2024 Harvest Bites. All rights reserved.
+                © 2026 Harvest Bites. All rights reserved.
               </p>
               <p className="text-sm text-secondary-foreground/60 italic font-display">
                 "HarvestBites – A Daily Food Ritual for Lifelong Health"

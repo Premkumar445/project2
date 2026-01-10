@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,6 +13,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useAuth();
 
   async function handleSubmit(e: React.FormEvent) {
@@ -43,7 +44,8 @@ export default function Login() {
         name: data.name,
       });
 
-      navigate("/");
+      const from = (location.state as any)?.from || "/";
+      navigate(from, { replace: true });
     } catch (err: any) {
       setError(`Error: ${err?.message || "Failed to connect to backend"}`);
     } finally {

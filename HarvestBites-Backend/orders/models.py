@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+import re
 
 class Order(models.Model):
     STATUS_CHOICES = [
@@ -56,3 +57,12 @@ class Order(models.Model):
     def short_order_number(self):
         """Short order number for display"""
         return self.order_number[-8:] if self.order_number else f"HB{self.id}"
+
+    def save(self, *args, **kwargs):
+        # Normalize customer_phone to +91<10-digits> before saving
+        if self.customer_phone:
+            digits = re.sub(r"\D", "", self.customer_phone)
+            if len(digits) >= 10:
+                last10 = digits[-10:]
+                self.customer_phone = f"+91{last10}"
+        super().save(*args, **kwargs)

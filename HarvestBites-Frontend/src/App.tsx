@@ -23,7 +23,9 @@ import RegisterDetails from "./pages/RegisterDetails";
 import LoginPage from "./pages/LoginPage";  
 import OrderSummary from "./pages/OrderSummary"; 
 import OrderSuccess from "./pages/OrderSuccess";
+import RazorpayCheckout from "./pages/RazorpayCheckout";
 import OrderTracking from "./pages/OrderTracking";
+
     
 const queryClient = new QueryClient();
 
@@ -45,9 +47,11 @@ const App = () => (
 
               {/* Auth routes */}
               <Route path="/login" element={<LoginPage />} />
-              <Route path="/signup" element={<SignUpPage />} />  
+              <Route path="/signup" element={<SignUpPage />} /> 
+              <Route path="/razorpay-checkout" element={<RazorpayCheckout />} /> 
               <Route path="/register/details" element={<RegisterDetails />} />
               <Route path="/order-success" element={<OrderSuccess />} />
+              
               
 
               {/* Account routes */}
@@ -55,6 +59,9 @@ const App = () => (
               <Route path="/account/orders" element={<Orders />} />
               <Route path="/wishlist" element={<Wishlist />} />
               <Route path="/order-summary" element={<OrderSummary />} />
+              <Route path="/order-summary" element={<OrderSummary />} />
+              <Route path="/order-summary" element={<OrderSummary />} />
+              
               <Route path="/track-order/:orderId" element={<OrderTracking />} />
 
               {/* /shop-now → /shop redirect */}
