@@ -39,7 +39,12 @@ export default function LoginPage() {
       };
 
       login(userData);
+<<<<<<< HEAD
       const from = (location.state as any)?.from || "/";
+=======
+      // If redirected here by RequireAuth, go back to original page
+      const from = (location.state as any)?.from?.pathname || "/";
+>>>>>>> 67e3aaf60d1ab5af1ae87ebdf45be7c7ae970133
       navigate(from, { replace: true });
     } catch (error) {
       console.error("Login error", error);
